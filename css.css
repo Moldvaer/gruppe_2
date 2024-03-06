@@ -1,0 +1,41 @@
+*{
+    margin: 0px;
+}
+
+#overskrift{
+    background-color: darkorange;
+    width: fit-content;
+    padding: 10px;
+    margin: 30px;
+    font-size: 25px;
+}
+
+.underskrift{
+    background-color: darkgray;
+    width: fit-content;
+    margin: 20px;
+    padding: 10px;
+}
+
+#tabell{
+    background-color: gray;
+    width: fit-content;
+    padding: 5px;
+    margin: 5px;
+}
+
+.finereknapper{
+    background-color: black;
+    color: darkorange;
+    font-size: 15px;
+    font-weight: bold;
+
+}
+
+.rediger{
+    background-color: darkgreen;
+}
+
+.slett{
+    background-color: darkred;
+}
