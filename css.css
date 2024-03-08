@@ -3,7 +3,7 @@
 }
 
 #overskrift{
-    background-color: darkorange;
+    background-color: gray;
     width: fit-content;
     padding: 10px;
     margin: 30px;
@@ -25,8 +25,8 @@
 }
 
 .finereknapper{
-    background-color: black;
-    color: darkorange;
+    background-color: darkgreen;
+    color: black;
     font-size: 15px;
     font-weight: bold;
 

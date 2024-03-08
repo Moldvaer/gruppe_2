@@ -65,3 +65,67 @@ mysqli_close($conn);
 </html>
 
    
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRM system</title>
+    <link rel="stylesheet" href="css.css">
+</head>
+<body>
+    <section id="overskrift">
+        <h1>CRM system</h1>
+    </section>    
+
+    <section class="underskrift"> <!--legger til bedrifter-->
+        <button class="finereknapper">legg til bedrift</button>
+    </section>
+
+    <section class="underskrift"> <!--Bredriften-->
+        <button class="finereknapper">legg til person</button> <!--Legger til person-->
+            <table id="tabell">
+                  <tr>
+                    <th>ID</th>
+                    <th>Fornavn</th>
+                    <th>Etternavn</th>
+                    <th>Rediger</th>
+                    <th>Slett</th>
+                  </tr>
+                  <tr>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                    <td><button class="rediger">Rediger</button></td>
+                    <td><button class="slett">Slett</button></td>
+                  </tr>
+                  <tr>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                    <td><button class="rediger">Rediger</button></td>
+                    <td><button class="slett">Slett</button></td>
+                  </tr>
+                  <tr>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                    <td><button class="rediger">Rediger</button></td>
+                    <td><button class="slett">Slett</button></td>
+                  </tr>
+            </table>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
