@@ -4,7 +4,8 @@
 include 'connect.php';
 
 //Prosedyre for lese
-$sql_les = "SELECT anr, etternavn, fornavn  FROM person ORDER BY etternavn, fornavn";
+$sql_les = "SELECT Bedrift_id, Navn, Telefon, E_post  FROM Kunde ";
+$sql_les = "SELECT Kontakt_id, Bedrift_id, fornavn, Etternavn, Avdeling, Telefon,Firma_e_post, E_post  FROM Kontaktperson";
 
 $result_les = mysqli_query($conn, $sql_les);
 $ansatte = mysqli_fetch_all($result_les, MYSQLI_ASSOC);
@@ -20,11 +21,11 @@ mysqli_close($conn);
     
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <?php include 'style.php';?>
+   
     <title>Ansatte</title>
 </head>
 <body>
-    <?php include 'meny.php';?>
+
     <header>
         <p>VIS ANSATTE<br></p>
     </header>
@@ -32,28 +33,35 @@ mysqli_close($conn);
         <table>
             <thead>
                 <tr>
-                    <th>Ansattnr</th>
-                    <th>Etternavn</th>
-                    <th>Fornavn</th>
+                    <th>Bedrift</th>
+                    <th>Telefon</th>
+                    <th>Mail</th>
                     <th colspan="2">Handlinger</th>
                 </tr>
             </thead>
             <tbody>
                 <?php foreach($ansatte as $person) { ?>
                 <tr>
-                    <td><?php echo $person['anr']; ?></td>    
-                    <td><?php echo $person['etternavn']; ?></td>
-                    <td><?php echo $person['fornavn']; ?></td>                            
+                    <td><?php echo $person['Navn']; ?></td>    
+                    <td><?php echo $person['Telefon']; ?></td>
+                    <td><?php echo $person['E_post']; ?></td>                            
                     <td>
                         <form action="slett.php" method="post">
-                        <input type="hidden" name="anr" value="<?php echo $person['anr']; ?>">
+                        <input type="hidden" name="Bedrift_id" value="<?php echo $person['Bedrift_id']; ?>">
                         <button type="submit" onclick="return confirm('Er du sikker på at du vil slette denne personen?')">Slett</button>
                         </form>
                     </td>
                     <td>
                         <form action="rediger.php" method="post">
-                        <input type="hidden" name="anr" value="<?php echo $person['anr']; ?>">
+                        <input type="hidden" name="Bedrift_id" value="<?php echo $person['Bedrift_id']; ?>">
                         <button type="submit">Rediger</button>
+                    </form>
+                    </form>
+                    </td>
+                    <td>
+                        <form action="Kontaktperson.php" method="post">
+                        <input type="hidden" name="Bedrift_id" value="<?php echo $person['Bedrift_id']; ?>">
+                        <button type="submit">Kontaktperson</button>
                     </form>
                 </td>   
                 </tr>

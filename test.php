@@ -1,7 +1,7 @@
 <?php
 include 'connect.php';
 // SQL-spørring for å hente ut informasjon
-$sql = "SELECT * FROM tabellnavn";
+$sql = "SELECT * FROM crm_database";
 $resultat = $conn->query($sql);
 
 // Sjekk om det er resultater
