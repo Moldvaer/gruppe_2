@@ -33,7 +33,7 @@ mysqli_close($conn);
         <table>
             <thead>
                 <tr>
-                    <th>Bedrift</th>
+                    <th>Bdrift</th>
                     <th>Telefon</th>
                     <th>Mail</th>
                     <th colspan="2">Handlinger</th>
