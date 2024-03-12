@@ -68,6 +68,10 @@
                 </tr>
             </thead>
             <tbody>
+
+
+
+            
             <?php
                 include 'connect.php';
                 // SQL-spørring for å hente ut informasjon

@@ -1,10 +1,24 @@
-<section class="underskrift"> <!--Bredrifen-->
-        <button class="finereknapper">legg til person</button> <!--Legger til person-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRM system</title>
+    <link rel="stylesheet" href="css.css">
+</head>
+<body>
+    <section id="overskrift">
+        <h1>CRM system</h1>
+    </section>    
+
+    <section class="underskrift"> <!--Bredrifen-->
+        <button class="finereknapper">legg til bedrift</button> <!--Legger til person-->
             <table id="tabell">
                   <tr>
-                    <th>ID</th>
-                    <th>Fornavn</th>
-                    <th>Etternavn</th>
+                    <th>bedrift</th>
+                    <th>Telefon</th>
+                    <th>Mail</th>
                     <th>Rediger</th>
                     <th>Slett</th>
                   </tr>
@@ -31,12 +45,30 @@
                   </tr>
             </table>
     </section>
-
-
+</body>
+</html>
 
 
 
 <?php
+include 'connect.php';
+
+
+// sql to delete a record
+$sql = "DELETE FROM kunde WHERE id=3";
+
+if ($conn->query($sql) === TRUE) {
+  echo "Record deleted successfully";
+} else {
+  echo "Error deleting record: " . $conn->error;
+}
+
+?>
+
+
+
+
+<!--
 // Henter forbindelses-streng
 include 'connect.php';
 
@@ -59,4 +91,3 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 // Lukk databaseforbindelsen
 mysqli_close($conn);
-?>
