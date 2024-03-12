@@ -1,30 +1,58 @@
-<?php
-
-//Henter forbindelses-streng
-include 'connect.php';
-
-//Prosedyre for lese
-$sql_les = "SELECT Bedrift_id, Navn, Telefon, E_post  FROM Kunde ";
-$sql_les = "SELECT Kontakt_id, Bedrift_id, fornavn, Etternavn, Avdeling, Telefon,Firma_e_post, E_post  FROM Kontaktperson";
-
-$result_les = mysqli_query($conn, $sql_les);
-$ansatte = mysqli_fetch_all($result_les, MYSQLI_ASSOC);
-
-mysqli_free_result($result_les);    
-mysqli_close($conn);
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   
-    <title>Ansatte</title>
+    <title>CRM system</title>
+    <link rel="stylesheet" href="css.css">
 </head>
 <body>
+    <section id="overskrift">
+        <h1>CRM system</h1>
+    </section>    
+
+    <section class="underskrift"> <!--legger til bedrifter-->
+        <button class="finereknapper">legg til bedrift</button>
+    </section>
+
+    <section class="underskrift"> <!--Bredriften-->
+        <button class="finereknapper">legg til person</button> <!--Legger til person-->
+        <table id="tabell">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Fornavn</th>
+                    <th>Etternavn</th>
+                    <th>Rediger</th>
+                    <th>Slett</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                    <td><button class="rediger">Rediger</button></td>
+                    <td><button class="slett">Slett</button></td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                    <td><button class="rediger">Rediger</button></td>
+                    <td><button class="slett">Slett</button></td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                    <td><button class="rediger">Rediger</button></td>
+                    <td><button class="slett">Slett</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
 
     <header>
         <p>VIS ANSATTE<br></p>
@@ -33,7 +61,7 @@ mysqli_close($conn);
         <table>
             <thead>
                 <tr>
-                    <th>Bdrift</th>
+                    <th>Bedrift</th>
                     <th>Telefon</th>
                     <th>Mail</th>
                     <th colspan="2">Handlinger</th>
@@ -69,71 +97,5 @@ mysqli_close($conn);
             </tbody>
         </table>
     </main>
-</body>
-</html>
-
-   
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CRM system</title>
-    <link rel="stylesheet" href="css.css">
-</head>
-<body>
-    <section id="overskrift">
-        <h1>CRM system</h1>
-    </section>    
-
-    <section class="underskrift"> <!--legger til bedrifter-->
-        <button class="finereknapper">legg til bedrift</button>
-    </section>
-
-    <section class="underskrift"> <!--Bredriften-->
-        <button class="finereknapper">legg til person</button> <!--Legger til person-->
-            <table id="tabell">
-                  <tr>
-                    <th>ID</th>
-                    <th>Fornavn</th>
-                    <th>Etternavn</th>
-                    <th>Rediger</th>
-                    <th>Slett</th>
-                  </tr>
-                  <tr>
-                    <td>1</td>
-                    <td>2</td>
-                    <td>3</td>
-                    <td><button class="rediger">Rediger</button></td>
-                    <td><button class="slett">Slett</button></td>
-                  </tr>
-                  <tr>
-                    <td>1</td>
-                    <td>2</td>
-                    <td>3</td>
-                    <td><button class="rediger">Rediger</button></td>
-                    <td><button class="slett">Slett</button></td>
-                  </tr>
-                  <tr>
-                    <td>1</td>
-                    <td>2</td>
-                    <td>3</td>
-                    <td><button class="rediger">Rediger</button></td>
-                    <td><button class="slett">Slett</button></td>
-                  </tr>
-            </table>
-    </section>
-
-
-
-
-
-
-
-
-
-
-
 </body>
 </html>
