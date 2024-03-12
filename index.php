@@ -68,32 +68,37 @@
                 </tr>
             </thead>
             <tbody>
-                <?php foreach($ansatte as $person) { ?>
+            <?php
+                include 'connect.php';
+                // SQL-spørring for å hente ut informasjon
+                $sql = "SELECT * FROM Kontaktperson ";
+                $resultat = $conn->query($sql);?>
+                <?php foreach($ansatte as $person) ?>
                 <tr>
                     <td><?php echo $person['Navn']; ?></td>    
                     <td><?php echo $person['Telefon']; ?></td>
                     <td><?php echo $person['E_post']; ?></td>                            
                     <td>
                         <form action="slett.php" method="post">
-                        <input type="hidden" name="Bedrift_id" value="<?php echo $person['Bedrift_id']; ?>">
+                        <input type="hidden" name="Kontakt_id" value="<?php echo $person['Kontakt_id']; ?>">
                         <button type="submit" onclick="return confirm('Er du sikker på at du vil slette denne personen?')">Slett</button>
                         </form>
                     </td>
                     <td>
                         <form action="rediger.php" method="post">
-                        <input type="hidden" name="Bedrift_id" value="<?php echo $person['Bedrift_id']; ?>">
+                        <input type="hidden" name="Kontakt_id" value="<?php echo $person['Kontakt_id']; ?>">
                         <button type="submit">Rediger</button>
                     </form>
                     </form>
                     </td>
                     <td>
                         <form action="Kontaktperson.php" method="post">
-                        <input type="hidden" name="Bedrift_id" value="<?php echo $person['Bedrift_id']; ?>">
+                        <input type="hidden" name="Kontakt_id" value="<?php echo $person['Kontakt_id']; ?>">
                         <button type="submit">Kontaktperson</button>
                     </form>
                 </td>   
                 </tr>
-                <?php } ?>
+               
             </tbody>
         </table>
     </main>
