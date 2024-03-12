@@ -12,61 +12,26 @@
         <h1>CRM system</h1>
     </section>    
 
-    <section class="underskrift"> <!--legger til bedrifter-->
-        <button class="finereknapper">legg til bedrift</button>
-    </section>
-
+   
     <section class="underskrift"> <!--Bredriften-->
-        <button class="finereknapper">legg til person</button> <!--Legger til person-->
+        <button class="finereknapper">legg til BEDRIFTER</button> <!--Legger til person-->
         <table id="tabell">
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Fornavn</th>
-                    <th>Etternavn</th>
-                    <th>Rediger</th>
-                    <th>Slett</th>
+                    <th>Bedrift</th>
+                    <th>Telefon</th>
+                    <th>E-post</th>
+                    <th >Handlinger</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>2</td>
-                    <td>3</td>
-                    <td><button class="rediger">Rediger</button></td>
-                    <td><button class="slett">Slett</button></td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>2</td>
-                    <td>3</td>
-                    <td><button class="rediger">Rediger</button></td>
-                    <td><button class="slett">Slett</button></td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>2</td>
-                    <td>3</td>
-                    <td><button class="rediger">Rediger</button></td>
-                    <td><button class="slett">Slett</button></td>
-                </tr>
-            </tbody>
-        </table>
+        
     </section>
 
     <header>
-        <p>VIS ANSATTE<br></p>
+        <p>VIS BEDRIFTER <br></p>
     </header>
     <main>    
-        <table>
-            <thead>
-                <tr>
-                    <th>Bedrift</th>
-                    <th>Telefon</th>
-                    <th>Mail</th>
-                    <th colspan="2">Handlinger</th>
-                </tr>
-            </thead>
             <tbody>
 
 
@@ -75,30 +40,56 @@
             <?php
                 include 'connect.php';
                 // SQL-spørring for å hente ut informasjon
-                $sql = "SELECT * FROM Kontaktperson ";
-                $resultat = $conn->query($sql);?>
-                <?php foreach($ansatte as $person) ?>
-                <tr>
-                    <td><?php echo $person['Navn']; ?></td>    
-                    <td><?php echo $person['Telefon']; ?></td>
-                    <td><?php echo $person['E_post']; ?></td>                            
-                    <td>
+                $sql = "SELECT * FROM kunde";
+                $result = mysqli_query($conn, $sql);
+
+                // Sjekk om spørringen ble utført vellykket
+                if (!$result) {
+                    die("Query failed: " . mysqli_error($conn));
+                }
+
+                // Sjekk om det er rader returnert
+                if (mysqli_num_rows($result) > 0) {
+                    // Iterer gjennom resultatene og vis dem i tabellen
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        echo "<tr>";
+                        echo "<td>" . $row['Bedrift_id'] . "</td>";
+                        echo "<td>" . $row['Navn'] . "</td>";
+                        echo "<td>" . $row['Telefon'] . "</td>";
+                        echo "<td>" . $row['E_post'] . "</td>";
+                        echo "<td id='handlinger'>";
+                        echo "<form action='slett.php' method='post'>";
+                        echo "<input type='hidden' name='Bedrift_id' value='" . $row['Bedrift_id'] . "'>";
+                        echo "<button type='submit' onclick=\"return confirm('Er du sikker på at du vil slette denne personen?')\">Slett</button>";
+                        echo "</form>";
+                        echo "<form action='kontaktperson.php' method='post'>";
+                        echo "<input type='hidden' name='Bedrift_id' value='" . $row['Bedrift_id'] . "'>";
+                        echo "<button type='submit'>Kontaktperson</button>";
+                        echo "</form>";
+                        echo "<form action='rediger.php' method='post'>";
+                        echo "<input type='hidden' name='Bedrift_id' value='" . $row['Bedrift_id'] . "'>";
+                        echo "<button type='submit'>Rediger</button>";
+                        echo "</form>";
+                        echo "</td>";
+                        echo "</tr>";
+                    }
+                } else {
+                    echo "<tr><td colspan='5'>Ingen resultater funnet</td></tr>";
+                }
+?>
                         <form action="slett.php" method="post">
                         <input type="hidden" name="Kontakt_id" value="<?php echo $person['Kontakt_id']; ?>">
-                        <button type="submit" onclick="return confirm('Er du sikker på at du vil slette denne personen?')">Slett</button>
                         </form>
                     </td>
                     <td>
                         <form action="rediger.php" method="post">
                         <input type="hidden" name="Kontakt_id" value="<?php echo $person['Kontakt_id']; ?>">
-                        <button type="submit">Rediger</button>
                     </form>
                     </form>
                     </td>
                     <td>
                         <form action="Kontaktperson.php" method="post">
                         <input type="hidden" name="Kontakt_id" value="<?php echo $person['Kontakt_id']; ?>">
-                        <button type="submit">Kontaktperson</button>
                     </form>
                 </td>   
                 </tr>

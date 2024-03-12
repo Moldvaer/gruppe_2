@@ -25,19 +25,13 @@
                     <th>Navn</th>
                     <th>Telefon</th>
                     <th>E-post</th>
+                    <th>Handlinger</th>
                 </tr>
             </thead>
             <tbody>
-                <?php
-                // Sett opp tilkoblingen til databasen
-                $conn = mysqli_connect("localhost", "root", "", "crm_database");
-
-                // Sjekk tilkoblingen
-                if (!$conn) {
-                    die("Connection failed: " . mysqli_connect_error());
-                }
-
-                // Utfør spørringen for å hente data
+            <?php
+                include 'connect.php';
+                // SQL-spørring for å hente ut informasjon
                 $sql = "SELECT * FROM kunde";
                 $result = mysqli_query($conn, $sql);
 
@@ -55,15 +49,18 @@
                         echo "<td>" . $row['Navn'] . "</td>";
                         echo "<td>" . $row['Telefon'] . "</td>";
                         echo "<td>" . $row['E_post'] . "</td>";
+                        echo "<td>";
+                        echo "<form action='slett.php' method='post'>";
+                        echo "<input type='hidden' name='Bedrift_id' value='" . $row['Bedrift_id'] . "'>";
+                        echo "<button type='submit' onclick=\"return confirm('Er du sikker på at du vil slette denne personen?')\">Slett</button>";
+                        echo "</form>";
+                        echo "</td>";
                         echo "</tr>";
                     }
                 } else {
-                    echo "<tr><td colspan='4'>Ingen resultater funnet</td></tr>";
+                    echo "<tr><td colspan='5'>Ingen resultater funnet</td></tr>";
                 }
-
-                // Lukk tilkoblingen
-                mysqli_close($conn);
-                ?>
+            ?>
             </tbody>
         </table>
     </section>
