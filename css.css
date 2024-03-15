@@ -39,9 +39,3 @@
 .slett{
     background-color: darkred;
 }
-
-#handlinger{
-    border: 1px solid black;
-    width: 400px;
-    overflow: hidden;
-}
