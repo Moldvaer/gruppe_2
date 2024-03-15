@@ -22,7 +22,7 @@
                     <th>Bedrift</th>
                     <th>Telefon</th>
                     <th>E-post</th>
-                    <th >Handlinger</th>
+                    <th colspan="3" >Handlinger</th>
                 </tr>
             </thead>
         
@@ -62,10 +62,14 @@
                         echo "<input type='hidden' name='Bedrift_id' value='" . $row['Bedrift_id'] . "'>";
                         echo "<button type='submit' onclick=\"return confirm('Er du sikker på at du vil slette denne personen?')\">Slett</button>";
                         echo "</form>";
+                        echo "</td>";
+                        echo "<td>";
                         echo "<form action='kontaktperson.php' method='post'>";
                         echo "<input type='hidden' name='Bedrift_id' value='" . $row['Bedrift_id'] . "'>";
                         echo "<button type='submit'>Kontaktperson</button>";
                         echo "</form>";
+                        echo "</td>";
+                        echo "<td>";
                         echo "<form action='rediger.php' method='post'>";
                         echo "<input type='hidden' name='Bedrift_id' value='" . $row['Bedrift_id'] . "'>";
                         echo "<button type='submit'>Rediger</button>";
@@ -89,7 +93,7 @@
                     </td>
                     <td>
                         <form action="Kontaktperson.php" method="post">
-                        <input type="hidden" name="Kontakt_id" value="<?php echo $person['Kontakt_id']; ?>">
+                        <input type="hidden" name="Bedrift_id" value="<?php echo $person['Bedrift_id']; ?>">
                     </form>
                 </td>   
                 </tr>
