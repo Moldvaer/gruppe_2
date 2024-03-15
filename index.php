@@ -12,9 +12,8 @@
         <h1>CRM system</h1>
     </section>    
 
-   
-    <section class="underskrift"> <!--Bredriften-->
-        <button class="finereknapper">legg til BEDRIFTER</button> <!--Legger til person-->
+    <section class="underskrift"> <!--Bedriftene-->
+        <button class="finereknapper">Legg til BEDRIFTER</button> <!--Legger til person-->
         <table id="tabell">
             <thead>
                 <tr>
@@ -25,19 +24,8 @@
                     <th colspan="3" >Handlinger</th>
                 </tr>
             </thead>
-        
-    </section>
-
-    <header>
-        <p>VIS BEDRIFTER <br></p>
-    </header>
-    <main>    
             <tbody>
-
-
-
-            
-            <?php
+                <?php
                 include 'connect.php';
                 // SQL-spørring for å hente ut informasjon
                 $sql = "SELECT * FROM kunde";
@@ -58,18 +46,21 @@
                         echo "<td>" . $row['Telefon'] . "</td>";
                         echo "<td>" . $row['E_post'] . "</td>";
                         echo "<td id='handlinger'>";
+                        // Form for sletteknapp
                         echo "<form action='slett.php' method='post'>";
                         echo "<input type='hidden' name='Bedrift_id' value='" . $row['Bedrift_id'] . "'>";
                         echo "<button type='submit' onclick=\"return confirm('Er du sikker på at du vil slette denne personen?')\">Slett</button>";
                         echo "</form>";
                         echo "</td>";
                         echo "<td>";
+                        // Form for kontaktpersonknapp
                         echo "<form action='kontaktperson.php' method='post'>";
                         echo "<input type='hidden' name='Bedrift_id' value='" . $row['Bedrift_id'] . "'>";
                         echo "<button type='submit'>Kontaktperson</button>";
                         echo "</form>";
                         echo "</td>";
                         echo "<td>";
+                        // Form for redigerknapp
                         echo "<form action='rediger.php' method='post'>";
                         echo "<input type='hidden' name='Bedrift_id' value='" . $row['Bedrift_id'] . "'>";
                         echo "<button type='submit'>Rediger</button>";
@@ -80,26 +71,9 @@
                 } else {
                     echo "<tr><td colspan='5'>Ingen resultater funnet</td></tr>";
                 }
-?>
-                        <form action="slett.php" method="post">
-                        <input type="hidden" name="Kontakt_id" value="<?php echo $person['Kontakt_id']; ?>">
-                        </form>
-                    </td>
-                    <td>
-                        <form action="rediger.php" method="post">
-                        <input type="hidden" name="Kontakt_id" value="<?php echo $person['Kontakt_id']; ?>">
-                    </form>
-                    </form>
-                    </td>
-                    <td>
-                        <form action="Kontaktperson.php" method="post">
-                        <input type="hidden" name="Bedrift_id" value="<?php echo $person['Bedrift_id']; ?>">
-                    </form>
-                </td>   
-                </tr>
-               
+                ?>
             </tbody>
         </table>
-    </main>
+    </section>
 </body>
 </html>

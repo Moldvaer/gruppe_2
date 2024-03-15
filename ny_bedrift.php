@@ -24,7 +24,7 @@
         }
     }
 
-    // Generer et unikt Bedrift_id
+    // Generer ee unik Bedrift_id
     $result = $conn->query("SELECT MAX(Bedrift_id) AS max_id FROM kunde");
     $row = $result->fetch_assoc();
     $next_id = $row["max_id"] + 1;
