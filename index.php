@@ -13,7 +13,7 @@
     </section>    
 
     <section class="underskrift"> <!--Bedriftene-->
-        <button class="finereknapper">Legg til BEDRIFTER</button> <!--Legger til person-->
+        <a class="finereknapper" href="ny_bedrift.php">Legg til BEDRIFTER</a> <!--Legger til bedrift-->
         <table id="tabell">
             <thead>
                 <tr>
