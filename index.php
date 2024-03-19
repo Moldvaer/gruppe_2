@@ -61,7 +61,7 @@
                         echo "</td>";
                         echo "<td>";
                         // Form for redigerknapp
-                        echo "<form action='rediger.php' method='post'>";
+                        echo "<form action='rediger_kontaktperson.php' method='post'>";
                         echo "<input type='hidden' name='Bedrift_id' value='" . $row['Bedrift_id'] . "'>";
                         echo "<button type='submit'>Rediger</button>";
                         echo "</form>";
