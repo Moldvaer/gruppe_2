@@ -1,4 +1,16 @@
-<?php
+<!DOCTYPE html>
+<html lang="nb">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>opptater</title>
+    <link rel="stylesheet" href="css.css">
+</head>
+<body>
+<a class="finereknapper"href="index.php">Hjem</a>
+
+</body>
+</html><?php
 include 'connect.php';
 
 // Sjekk om skjemainndata er mottatt
@@ -18,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Oppdater databasen med de nye verdiene
         $sql = "UPDATE kunde SET Navn='$navn', Telefon='$telefon', E_post='$e_post' WHERE Bedrift_id=$bedrift_id";
         $result = mysqli_query($conn, $sql);
-
+            
         // Sjekk om oppdateringen var vellykket
         if ($result) {
             echo "Bedrift med Bedrift_id $bedrift_id ble oppdatert.";
