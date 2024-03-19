@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Legg til ny kunde</title>
+    <title>Legg til ny bedrift</title>
 </head>
 <body>
     <?php
