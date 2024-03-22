@@ -13,7 +13,7 @@
     </section>    
 
     <section class="underskrift"> <!-- Kontaktpersoner -->
-        <button class="finereknapper">Legg til KONTAKTPERSON</button> <!-- Legger til kontaktperson -->
+        <a class="finereknapper" href="legg_til_kontakperson.php">Legg til KONTAKTPERSON</a> <!-- Legger til kontaktperson -->
         <table id="tabell">
             <thead>
                 <tr>
@@ -65,6 +65,13 @@
                 } else {
                     echo "<tr><td colspan='8'>Ingen bedrift valgt.</td></tr>";
                 }
+                    
+
+                
+
+
+
+
                 ?>
             </tbody>
         </table>
