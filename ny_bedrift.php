@@ -25,6 +25,7 @@
 
         if ($conn->query($sql) === TRUE) {
             echo "Ny kunde ble lagt til!";
+            header("refresh:2; url=index.php");
         } else {
             echo "Feil: " . $sql . "<br>" . $conn->error;
         }
