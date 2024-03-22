@@ -1,45 +1,88 @@
-*{
-    margin: 0px;
+/* Reset CSS for basic styles */
+* {
+    margin: 10px;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-#overskrift{
-    background-color: gray;
-    width: fit-content;
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f5f5f5;
+}
+
+#overskrift {
+    text-align: center;
+    padding: 20px 0;
+}
+
+h1 {
+    font-size: 2em;
+    color: #333;
+}
+
+.underskrift {
+    margin: 0 auto;
+    width: 80%;
+}
+
+.finereknapper {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.finereknapper:hover {
+    background-color: #0056b3;
+}
+
+#tabell {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+#tabell th, #tabell td {
     padding: 10px;
-    margin: 30px;
-    font-size: 25px;
+    border-bottom: 1px solid #ddd;
 }
 
-.underskrift{
-    background-color: darkgray;
-    width: fit-content;
-    margin: 20px;
-    padding: 10px;
-}
-
-#tabell{
-    background-color: gray;
-    width: fit-content;
-    padding: 5px;
-    margin: 5px;
-}
-
-.finereknapper{
-    background-color: darkgreen;
-    color: black;
-    font-size: 15px;
+#tabell th {
+    background-color: #f2f2f2;
     font-weight: bold;
-
+    text-align: left;
 }
 
-.rediger{
-    background-color: darkgreen;
+#tabell td {
+    text-align: left;
 }
 
-.slett{
-    background-color: darkred;
+#handlinger {
+    width: 150px;
 }
 
-#handlinger{
-    overflow: hidden;
+form {
+    display: inline;
+    margin-right: 5px;
+}
+
+/* Styling for andre knapper */
+button.finereknapper {
+    background-color: #007bff;
+    border: none;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button.finereknapper:hover {
+    background-color: #0056b3;
 }

@@ -46,27 +46,29 @@
                         echo "<td>" . $row['Telefon'] . "</td>";
                         echo "<td>" . $row['E_post'] . "</td>";
                         echo "<td id='handlinger'>";
-                        // Form for sletteknapp
-                        echo "<form action='slett.php' method='post'>";
-                        echo "<input type='hidden' name='Bedrift_id' value='" . $row['Bedrift_id'] . "'>";
-                        echo "<button type='submit' onclick=\"return confirm('Er du sikker på at du vil slette denne personen?')\">Slett</button>";
-                        echo "</form>";
-                        echo "</td>";
-                        echo "<td>";
-                        // Form for kontaktpersonknapp
-                        echo "<form action='kontaktperson.php' method='post'>";
-                        echo "<input type='hidden' name='Bedrift_id' value='" . $row['Bedrift_id'] . "'>";
-                        echo "<button type='submit'>Kontaktperson</button>";
-                        echo "</form>";
-                        echo "</td>";
-                        echo "<td>";
-                        // Form for redigerknapp
-                        echo "<form action='rediger_bedrift.php' method='post'>";
-                        echo "<input type='hidden' name='Bedrift_id' value='" . $row['Bedrift_id'] . "'>";
-                        echo "<button type='submit'>Rediger</button>";
-                        echo "</form>";
-                        echo "</td>";
-                        echo "</tr>";
+                    // Form for sletteknapp
+                    echo "<form action='slett.php' method='post'>";
+                    echo "<input type='hidden' name='Bedrift_id' value='" . $row['Bedrift_id'] . "'>";
+                    echo "<input type='submit' value='Slett' class='finereknapper' onclick=\"return confirm('Er du sikker på at du vil slette denne personen?')\">";
+                    echo "</form>";
+                    echo "</td>";
+                    echo "<td>";
+                    // Form for kontaktpersonknapp
+                    echo "<form action='kontaktperson.php' method='post'>";
+                    echo "<input type='hidden' name='Bedrift_id' value='" . $row['Bedrift_id'] . "'>";
+                    echo "<input type='submit' value='Kontaktperson' class='finereknapper'>";
+                    echo "</form>";
+                    echo "</td>";
+                    echo "<td>";
+                    // Form for redigerknapp
+                    echo "<form action='rediger_bedrift.php' method='post'>";
+                    echo "<input type='hidden' name='Bedrift_id' value='" . $row['Bedrift_id'] . "'>";
+                    echo "<input type='submit' value='Rediger' class='finereknapper'>";
+                    echo "</form>";
+                    echo "</td>";
+                    echo "</tr>";
+
+
                     }
                 } else {
                     echo "<tr><td colspan='5'>Ingen resultater funnet</td></tr>";
