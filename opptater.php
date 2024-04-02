@@ -34,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Sjekk om oppdateringen var vellykket
         if ($result) {
             echo "Bedrift med Bedrift_id $bedrift_id ble oppdatert.";
-            header ('index.php')
+            header ('index.php');
         } else {
             echo "Feil: " . mysqli_error($conn);
         }

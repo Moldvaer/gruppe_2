@@ -11,10 +11,24 @@
     <section id="overskrift">
         <h1>Kontaktpersoner</h1>
     </section>    
+    <?php include 'connect.php';?>
 
-    <section class="underskrift"> <!-- Kontaktpersoner -->
-        <a class="finereknapper" href="legg_til_kontakperson.php">Legg til KONTAKTPERSON</a> <!-- Legger til kontaktperson -->
-        <table id="tabell">
+    
+    <section class="underskrift"> <!-- Kontaktpersoner -->  
+    <?php
+// Sjekk om Bedrift_id er satt og har en verdi
+if (isset($_POST['Bedrift_id']) && !empty($_POST['Bedrift_id'])) {
+    $selected_bedrift_id = $_POST['Bedrift_id'];
+
+    // Opprett en lenke med $selected_bedrift_id som en GET-parameter
+    echo "<a href='legg_til_kontakperson.php?selected_bedrift_id=$selected_bedrift_id'>Lenke til annen side</a>";
+} else {
+    echo "Ingen bedrift valgt.";
+}
+?>
+
+   
+       <table id="tabell">
             <thead>
                 <tr>
                     <th>ID</th>
@@ -29,7 +43,7 @@
             </thead>
             <tbody>
                 <?php
-                include 'connect.php';
+                
 
                 // Sjekk om Bedrift_id er satt
                 if (isset($_POST['Bedrift_id'])) {
